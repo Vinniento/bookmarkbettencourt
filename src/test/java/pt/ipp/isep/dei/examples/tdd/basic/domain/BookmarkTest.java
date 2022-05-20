@@ -1,9 +1,6 @@
 package pt.ipp.isep.dei.examples.tdd.basic.domain;
 
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import pt.ipp.isep.dei.examples.tdd.basic.ui.Bookmark;
-import pt.ipp.isep.dei.examples.tdd.basic.ui.Bookmarks;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -66,6 +63,24 @@ public class BookmarkTest {
 
         assertEquals(expectedResult, result);
 
+    }
+
+    @Test
+    public void ensureRatingofBookmark() throws MalformedURLException{
+        Bookmarks bookmarks = new Bookmarks();
+
+        URL url  = new URL("https://www.google.com");
+        // arrange
+        bookmarks.addBookmark(url);
+
+        int expectedResult = 0;
+        int result;
+
+        // act
+        result = bookmarks.getBookmarkRating(url);
+
+        // assert
+        assertEquals(expectedResult, result);
     }
 
 }

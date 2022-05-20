@@ -1,10 +1,8 @@
-package pt.ipp.isep.dei.examples.tdd.basic.ui;
+package pt.ipp.isep.dei.examples.tdd.basic.domain;
 
-import java.awt.print.Book;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Bookmarks {
     List<Bookmark> bookmarks = new ArrayList<>();
@@ -36,5 +34,15 @@ public class Bookmarks {
     }
 
 
+    public int getBookmarkRating(URL url) {
+        int rating=0;
+        for (Bookmark bookmark : bookmarks) {
+            if (bookmark.getUrl() == url) {
+                rating = bookmark.getRating();
+                break;
+            }
+        }
+        return rating;
+    }
 }
 

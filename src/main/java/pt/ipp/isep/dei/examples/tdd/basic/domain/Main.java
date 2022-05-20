@@ -1,4 +1,4 @@
-package pt.ipp.isep.dei.examples.tdd.basic.ui;
+package pt.ipp.isep.dei.examples.tdd.basic.domain;
 
 
 public class Main {
