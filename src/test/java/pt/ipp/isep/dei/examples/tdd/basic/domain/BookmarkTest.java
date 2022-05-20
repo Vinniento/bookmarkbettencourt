@@ -83,4 +83,25 @@ public class BookmarkTest {
         assertEquals(expectedResult, result);
     }
 
+    @Test
+    public void ensureRatingGetsIncreasedWhenBookmarkIsAgainAdded() throws MalformedURLException{
+        Bookmarks bookmarks = new Bookmarks();
+
+        URL url  = new URL("https://www.google.com");
+        // arrange
+        bookmarks.addBookmark(url);
+        bookmarks.addBookmark(url);
+
+        int expectedResult = 1;
+        int result;
+
+        // act
+
+        result = bookmarks.getBookmarkRating(url);
+
+        // assert
+        assertEquals(expectedResult, result);
+
+    }
+
 }

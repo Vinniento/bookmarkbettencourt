@@ -8,8 +8,22 @@ public class Bookmarks {
     List<Bookmark> bookmarks = new ArrayList<>();
 
     public List<Bookmark> addBookmark(URL url) {
-        bookmarks.add(new Bookmark(url));
+        if (IncreaseBookmarkRatingIfBookmarkExists(url)) {
+            return bookmarks;
+        } else
+            bookmarks.add(new Bookmark(url));
+
         return bookmarks;
+    }
+
+    public boolean IncreaseBookmarkRatingIfBookmarkExists(URL url) {
+        for (Bookmark bookmark : bookmarks) {
+            if (bookmark.getUrl() == url) {
+                bookmark.setRating(bookmark.getRating()+1);
+                return true;
+            }
+        }
+        return false;
     }
 
     public void setBookmarkTag(URL url, String tag) {
@@ -35,7 +49,7 @@ public class Bookmarks {
 
 
     public int getBookmarkRating(URL url) {
-        int rating=0;
+        int rating = 0;
         for (Bookmark bookmark : bookmarks) {
             if (bookmark.getUrl() == url) {
                 rating = bookmark.getRating();
