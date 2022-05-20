@@ -1,5 +1,6 @@
 package pt.ipp.isep.dei.examples.tdd.basic.domain;
 
+import java.awt.print.Book;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,18 +9,20 @@ public class Bookmarks {
     List<Bookmark> bookmarks = new ArrayList<>();
 
     public List<Bookmark> addBookmark(URL url) {
-        if (IncreaseBookmarkRatingIfBookmarkExists(url)) {
-            return bookmarks;
-        } else
+        if (CheckIfBookmarkExists(url)) {
+            for (Bookmark bookmark: bookmarks) {
+                bookmark.setRating(bookmark.getRating() + 1);
+            }
+        } else {
             bookmarks.add(new Bookmark(url));
-
+        }
         return bookmarks;
     }
 
-    public boolean IncreaseBookmarkRatingIfBookmarkExists(URL url) {
+
+    public boolean CheckIfBookmarkExists(URL url) {
         for (Bookmark bookmark : bookmarks) {
             if (bookmark.getUrl() == url) {
-                bookmark.setRating(bookmark.getRating()+1);
                 return true;
             }
         }
