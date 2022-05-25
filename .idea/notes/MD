@@ -1,4 +1,4 @@
-# Bookmark
+# Bookmarks
 
 ## addBookmarksTest
 test if bookmark can be added
@@ -6,13 +6,13 @@ test if bookmark can be added
 first parameter = bookmark
 expectedResult = List with added bookmark
 
-## ensureTaggingOfURL
+## ensureSingleTaggingOfURL
 
-test if URL is tagged successfully
+test if Bookmark is tagged successfully with one tag
 
 first parameter = bookmark
 second parameter = tag
-expected result =  added tag to bookmark
+expected result =  added tag to list in bookmark
 
 ## ensureRatingofBookmark
 
