@@ -76,7 +76,7 @@ public class BookmarksTest {
     }
 
     @Test
-    public void ensureRatingofBookmark() throws MalformedURLException{
+    public void ensureRatingOfBookmark() throws MalformedURLException{
         Bookmarks bookmarks = new Bookmarks();
 
         URL url  = new URL("https://www.google.com");
