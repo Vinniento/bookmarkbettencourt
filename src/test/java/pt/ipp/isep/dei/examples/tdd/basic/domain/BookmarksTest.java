@@ -49,17 +49,18 @@ public class BookmarksTest {
     }*/
 
     @Test
-    public void ensureTaggingOfURL() throws MalformedURLException {
+    public void ensureSingleTaggingOfBookmark() throws MalformedURLException {
         Bookmarks bookmarks = new Bookmarks();
 
         String tag = "katzenvideos";
 
-        String expectedResult = tag;
+        List<String> expectedResult = new ArrayList<>();
+        expectedResult.add(tag);
         URL url = new URL("https://www.google.com");
         bookmarks.addBookmark(url);
-        bookmarks.setBookmarkTag(url, tag);
+        bookmarks.addTagToBookmark(url, tag);
 
-        String result = bookmarks.getBookmarkTag(url);
+        List<String> result = bookmarks.getBookmarkTags(url);
 
         assertEquals(expectedResult, result);
 

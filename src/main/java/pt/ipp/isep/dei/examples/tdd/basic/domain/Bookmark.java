@@ -2,22 +2,23 @@ package pt.ipp.isep.dei.examples.tdd.basic.domain;
 
 import java.awt.print.Book;
 import java.net.URL;
+import java.sql.Array;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Bookmark {
-    public URL getUrl() {
-        return url;
-    }
 
-    public String getTag() {
-        return tag;
-    }
+    public Bookmark(URL url) {
+        this.url = url;
+        this.tags = new ArrayList<>();
 
-    public void setTag(String tag) {
-        this.tag = tag;
     }
 
     URL url;
-    String tag;
+    List<String> tags;
+    public URL getUrl() {
+        return url;
+    }
 
     public int getRating() {
         return rating;
@@ -29,10 +30,15 @@ public class Bookmark {
 
     int rating = 0;
 
-    public Bookmark(URL url) {
-        this.url = url;
+
+
+    public void addTag(String Tag) {
+        this.tags.add(Tag);
     }
 
+    public List<String> getTags() {
+        return this.tags;
+    }
 
 }
 

@@ -29,21 +29,22 @@ public class Bookmarks {
         return false;
     }
 
-    public void setBookmarkTag(URL url, String tag) {
+    public void addTagToBookmark(URL url, String tag) {
 
         bookmarks.forEach(bookmark -> {
             if (bookmark.getUrl() == url) {
-                bookmark.setTag(tag);
+                bookmark.addTag(tag);
             }
         });
 
     }
 
-    public String getBookmarkTag(URL url) {
-        String tag = "";
+    public List<String> getBookmarkTags(URL url) {
+        List<String> tag = new ArrayList<>();
+
         for (Bookmark bookmark : bookmarks) {
             if (bookmark.getUrl() == url) {
-                tag = bookmark.getTag();
+                tag = bookmark.getTags();
                 break;
             }
         }
