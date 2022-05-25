@@ -2,6 +2,7 @@ package pt.ipp.isep.dei.examples.tdd.basic.domain;
 
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Array;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.*;
@@ -17,13 +18,9 @@ public class BookmarkTest {
         Bookmark bookmark = new Bookmark(url);
 
         //arrange
-        Map<String, Integer> expectedResult = new HashMap<String, Integer>();
-
         String firstTag = "firstTag";
         String secondTag = "secondTag";
-
-        expectedResult.put(firstTag,0);
-        expectedResult.put(secondTag,0);
+        List<String> expectedResult = Arrays.asList(firstTag, secondTag);
 
         //act
         bookmark.addTag(firstTag);
