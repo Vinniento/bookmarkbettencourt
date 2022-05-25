@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -32,18 +33,44 @@ public class BookmarksTest {
 
     @Test
     public void ensureSingleTaggingOfBookmark() throws MalformedURLException {
+
+
+       //arrange
         Bookmarks bookmarks = new Bookmarks();
-
         String tag = "katzenvideos";
-
         List<String> expectedResult = new ArrayList<>();
         expectedResult.add(tag);
         URL url = new URL("https://www.google.com");
+
+        //act
         bookmarks.addBookmark(url);
         bookmarks.addTagToBookmark(url, tag);
 
         List<String> result = bookmarks.getBookmarkTags(url);
 
+        //result
+        assertEquals(expectedResult, result);
+
+    }
+
+    @Test
+    public void ensureMultipleTagsForBookmark() throws MalformedURLException {
+
+        URL url = new URL("http://www.google.com");
+        Bookmarks bookmarks = new Bookmarks();
+        //arrange
+        String firstTag = "firstTag";
+        String secondTag = "secondTag";
+        List<String> expectedResult = Arrays.asList(firstTag, secondTag);
+
+        //act
+        bookmarks.addBookmark(url);
+        bookmarks.addTagToBookmark(url, firstTag);
+        bookmarks.addTagToBookmark(url, secondTag);
+
+        List<String> result = bookmarks.getBookmarkTags(url);
+
+        //assert
         assertEquals(expectedResult, result);
 
     }
