@@ -10,10 +10,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class BookmarksTest {
-    /*
-     * Brauchen eine bookmark liste, um urls hinein zu speichern
-     *
-     * */
+
     @Test
     public void addBookmarksTest() throws MalformedURLException {
 
@@ -32,21 +29,6 @@ public class BookmarksTest {
         assertEquals(expectedResult.get(0).getUrl(), result.get(0).getUrl());
     }
 
-    /*@Test
-    //["https://www.google.com", "https://www.youtube.com", ""]
-    public void ensureThatValidURLsAreParsedCorrectly(String url) throws MalformedURLException {
-        Bookmarks bookmarks = new Bookmarks();
-
-        URL u = new URL("ww.google.com");
-
-        // Act
-        Exception ex = assertThrows(MalformedURLException.class, () -> bookmarks.checkValidURL());
-
-        // Assert
-        assertEquals("/ by zero", ex.getMessage());
-        assertTrue(ex.getMessage().contains("zero"));
-
-    }*/
 
     @Test
     public void ensureSingleTaggingOfBookmark() throws MalformedURLException {
@@ -103,8 +85,4 @@ public class BookmarksTest {
         // assert
         assertEquals(expectedResult, result);
     }
-
-  //  @Test
-   // public void
-
 }
