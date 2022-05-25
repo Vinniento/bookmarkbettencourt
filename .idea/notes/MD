@@ -1,0 +1,27 @@
+# Bookmark
+
+## addBookmarksTest
+test if bookmark can be added
+
+first parameter = bookmark
+expectedResult = List with added bookmark
+
+## ensureTaggingOfURL
+
+test if URL is tagged successfully
+
+first parameter = bookmark
+second parameter = tag
+expected result =  added tag to bookmark
+
+## ensureRatingofBookmark
+
+test if URL is added again, rating is increased
+
+first parameter = url
+expected result = increased rating
+
+## ensureRatingGetsIncreasedWhenBookmarkIsAgainAdded
+
+secondparameter = url
+expected result = rating+1
