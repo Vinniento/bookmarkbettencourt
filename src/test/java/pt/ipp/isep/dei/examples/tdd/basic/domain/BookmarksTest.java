@@ -254,7 +254,7 @@ public class BookmarksTest {
     }
 
     @Test
-    public void ensureFilteringByMultipleKeywordsThatExistReturnTotal() throws MalformedURLException{
+    public void ensureFilteringByMultipleKeywordsThatExistReturnTotal() throws MalformedURLException {
         URL url = new URL("http://www.google.com");
         URL url1 = new URL("http://www.face.com/bla");
         URL url2 = new URL("http://www.google.at/extra");
@@ -283,7 +283,7 @@ public class BookmarksTest {
     }
 
     @Test
-    public void ensureFilteringByMultipleKeywordsThatDoNotExistReturnTotal() throws MalformedURLException{
+    public void ensureFilteringByMultipleKeywordsThatDoNotExistReturnTotal() throws MalformedURLException {
         URL url = new URL("http://www.google.com");
         URL url1 = new URL("http://www.face.com/bla");
         URL url2 = new URL("http://www.google.at/extra");
@@ -306,7 +306,7 @@ public class BookmarksTest {
     }
 
     @Test
-    public void ensureTagIsDeletedInBookmark() throws MalformedURLException{
+    public void ensureTagIsDeletedInBookmark() throws MalformedURLException {
         URL url = new URL("http://www.google.com");
         Bookmarks bookmarks = new Bookmarks();
         //arrange
@@ -330,8 +330,9 @@ public class BookmarksTest {
 
 
     }
+
     @Test
-    public void deleteTagOfNotExistendBookmark() throws MalformedURLException{
+    public void deleteTagOfNotExistendBookmark() throws MalformedURLException {
         URL url = new URL("http://www.google.com");
         URL url1 = new URL("http://www.facebook.com");
         Bookmarks bookmarks = new Bookmarks();
@@ -354,6 +355,26 @@ public class BookmarksTest {
 
         assertEquals(expectedResult, result);
 
+
+    }
+
+    @Test
+    public void ensureRemovingExistingBookmarkResultsInSmallerList() throws MalformedURLException {
+        URL url = new URL("http://www.google.com");
+        URL url1 = new URL("http://www.facebook.com");
+        Bookmarks bookmarks = new Bookmarks();
+        //arramge
+        bookmarks.addBookmark(url);
+        bookmarks.addBookmark(url1);
+
+        //List<Bookmark> expectedResult = Arrays.asList(new Bookmark(url1));
+        int expectedResult = 1;
+        //act
+        bookmarks.removeBookmark(url);
+
+        //assert
+
+        assertEquals(expectedResult, bookmarks.bookmarks.size());
 
     }
 

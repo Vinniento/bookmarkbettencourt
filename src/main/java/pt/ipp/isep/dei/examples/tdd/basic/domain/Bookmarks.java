@@ -60,13 +60,14 @@ public class Bookmarks {
                 .collect(Collectors.toList());
     }
 
-    public List<Bookmark> getBookmarksByTags(List<String> tags){
+    public List<Bookmark> getBookmarksByTags(List<String> tags) {
         List<Bookmark> result = new ArrayList<>();
-        for (String tag : tags){
+        for (String tag : tags) {
             result.addAll(getBookmarksByTag(tag));
         }
         return result;
     }
+
     public int getSecureUrlCount() {
         return (int) bookmarks.stream()
                 .filter(b -> b.getUrl().toString().contains("https://"))
@@ -87,6 +88,10 @@ public class Bookmarks {
                 .stream()
                 .filter(bookmark -> bookmark.getUrl().equals(url))
                 .forEach(bookmark -> bookmark.deleteTag(tag));
+    }
+
+    public void removeBookmark(URL url) {
+        bookmarks.removeIf(bookmark -> bookmark.getUrl() == url);
     }
 }
 
