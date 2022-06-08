@@ -32,38 +32,6 @@ public class Bookmarks {
         return false;
     }
 
-    public void addTagToBookmark(URL url, String tag) {
-
-        bookmarks.forEach(bookmark -> {
-            if (bookmark.getUrl() == url) {
-                bookmark.addTag(tag);
-            }
-        });
-    }
-
-    public List<String> getBookmarkTags(URL url) {
-        List<String> tag = new ArrayList<>();
-
-        for (Bookmark bookmark : bookmarks) {
-            if (bookmark.getUrl() == url) {
-                tag = bookmark.getTags();
-                break;
-            }
-        }
-        return tag;
-    }
-
-
-    public int getBookmarkRating(URL url) {
-        int rating = 0;
-        for (Bookmark bookmark : bookmarks) {
-            if (bookmark.getUrl() == url) {
-                rating = bookmark.getRating();
-                break;
-            }
-        }
-        return rating;
-    }
 
     public int getSecureUrlCount() {
         return  (int)bookmarks.stream()
