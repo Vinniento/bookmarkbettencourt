@@ -378,4 +378,24 @@ public class BookmarksTest {
 
     }
 
+    @Test
+    public void ensureRemovingNonExistingBookmarkResultsInSameSizedList() throws MalformedURLException {
+        URL url = new URL("http://www.google.com");
+        URL url1 = new URL("http://www.facebook.com");
+        Bookmarks bookmarks = new Bookmarks();
+        //arramge
+        bookmarks.addBookmark(url);
+        bookmarks.addBookmark(url1);
+
+        //List<Bookmark> expectedResult = Arrays.asList(new Bookmark(url1));
+        int expectedResult = 2;
+        //act
+        bookmarks.removeBookmark(new URL("http://www.goog.com"));
+
+        //assert
+
+        assertEquals(expectedResult, bookmarks.bookmarks.size());
+
+    }
+
 }
