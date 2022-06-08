@@ -71,4 +71,4 @@ mvn test jacoco:report org.pitest:pitest-maven:mutationCoverage -DhistoryInputFi
 ##Test 1 - enrure that when multiplying something by 0 the result is 0
 first operand = 7
 second operand = 0
-expected result = 0
+expected result = 0  
