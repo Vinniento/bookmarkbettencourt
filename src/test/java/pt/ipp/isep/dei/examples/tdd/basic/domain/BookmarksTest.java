@@ -8,6 +8,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -29,6 +30,34 @@ public class BookmarksTest {
 
         //assert
         assertEquals(expectedResult.get(0).getUrl(), result.get(0).getUrl());
+    }
+
+
+
+
+
+
+
+
+    @Test
+    public void ensureRatingGetsIncreasedWhenBookmarkIsAgainAdded() throws MalformedURLException{
+        Bookmarks bookmarks = new Bookmarks();
+
+        URL url  = new URL("https://www.google.com");
+        // arrange
+        bookmarks.addBookmark(url);
+        bookmarks.addBookmark(url);
+
+        int expectedResult = 1;
+        int result;
+
+        // act
+        result = bookmarks.bookmarks
+                .stream().filter(bookmark -> bookmark.getUrl()==url)
+                .findFirst().orElse(null).getRating();
+
+        // assert
+        assertEquals(expectedResult, result);
     }
 
     //CheckSecureUrlCount
