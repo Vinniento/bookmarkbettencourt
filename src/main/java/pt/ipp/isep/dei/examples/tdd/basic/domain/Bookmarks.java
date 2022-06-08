@@ -3,9 +3,7 @@ package pt.ipp.isep.dei.examples.tdd.basic.domain;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Bookmarks {
@@ -86,13 +84,22 @@ public class Bookmarks {
 
         for (Bookmark bookmark : bookmarks) {
             if (bookmark.getUrl() == url) {
-               bookmark.deleteTag(tag);
+                bookmark.deleteTag(tag);
             }
         }
     }
 
     public void removeBookmark(URL url) {
         bookmarks.removeIf(bookmark -> bookmark.getUrl() == url);
+    }
+
+    public List<Bookmark> getBookmarksSortedByRating() {
+
+        return  bookmarks
+                .stream()
+                .sorted(Comparator.comparingInt(Bookmark::getRating).reversed())
+                .collect(Collectors.toList());
+
     }
 }
 
