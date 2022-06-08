@@ -7,6 +7,27 @@ first parameter = bookmark
 expectedResult = List with added bookmark
 
 
+## ensureSingleTaggingOfURL
+
+test if Bookmark is tagged successfully with one tag
+
+first parameter = bookmark
+second parameter = tag
+expected result =  added tag to list in bookmark
+
+## ensureRatingofBookmark
+
+test if URL is added again, rating is increased
+
+first parameter = url
+expected result = increased rating
+
+## ensureRatingGetsIncreasedWhenBookmarkIsAgainAdded
+
+secondparameter = url
+expected result = rating+1
+
+
 ## ensureNoSecureUrlsInBookmarksReturnsZero
 
 first parameter = http://google.com
