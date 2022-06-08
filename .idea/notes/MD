@@ -35,7 +35,13 @@ expected result = rating+1
 
 ###  ensure getUrl returns URL
 
-first parameter = url
-expected result = url
+first parameter = http://www.google.com
+expected result = http://www.google.com
+
+###  ensure setRating returns URL
+
+first parameter = http://www.google.com
+secondparameter = 2
+expected result = 2
 
 
