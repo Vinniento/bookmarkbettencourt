@@ -6,6 +6,10 @@ import java.awt.print.Book;
 import java.lang.reflect.Array;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -104,4 +108,23 @@ public class BookmarkTest {
         //assert
         assertEquals(expectedResult, result);
     }
+
+    @Test
+    public void ensureAddingOfTimeAndDate() throws MalformedURLException{
+        URL url = new URL("http://www.google.com");
+        Bookmark bookmark = new Bookmark(url);
+
+        //arrange
+        LocalDateTime dateTime = LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS);
+
+        //act
+        bookmark.setDateTime();
+        LocalDateTime result = bookmark.getCreationTime();
+        //assert
+        assertEquals(dateTime, result);
+
+
+
+    }
+
 }
