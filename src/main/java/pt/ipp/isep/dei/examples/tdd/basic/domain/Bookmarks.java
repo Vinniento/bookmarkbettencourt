@@ -31,6 +31,7 @@ public class Bookmarks {
             }
         });
     }
+
     public List<String> getBookmarkTags(URL url) {
         List<String> tag = new ArrayList<>();
 
@@ -52,6 +53,12 @@ public class Bookmarks {
         return false;
     }
 
+    public List<Bookmark> getBookmarksByTag(String tag) {
+        return bookmarks
+                .stream()
+                .filter(bookmark -> bookmark.getTags().contains(tag))
+                .collect(Collectors.toList());
+    }
 
     public int getSecureUrlCount() {
         return (int) bookmarks.stream()

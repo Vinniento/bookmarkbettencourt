@@ -33,10 +33,10 @@ public class BookmarksTest {
     }
 
     @Test
-    public void ensureRatingGetsIncreasedWhenBookmarkIsAgainAdded() throws MalformedURLException{
+    public void ensureRatingGetsIncreasedWhenBookmarkIsAgainAdded() throws MalformedURLException {
         Bookmarks bookmarks = new Bookmarks();
 
-        URL url  = new URL("https://www.google.com");
+        URL url = new URL("https://www.google.com");
         // arrange
         bookmarks.addBookmark(url);
         bookmarks.addBookmark(url);
@@ -46,7 +46,7 @@ public class BookmarksTest {
 
         // act
         result = bookmarks.bookmarks
-                .stream().filter(bookmark -> bookmark.getUrl()==url)
+                .stream().filter(bookmark -> bookmark.getUrl() == url)
                 .findFirst().orElse(null).getRating();
 
         // assert
@@ -90,6 +90,7 @@ public class BookmarksTest {
         //assert
         assertEquals(expectedresult, result);
     }
+
     @Test
     public void EnsureTwoSecureUrlInBookmarksReturnsTwo() throws MalformedURLException {
         //arrange
@@ -109,7 +110,7 @@ public class BookmarksTest {
 
 
     @Test
-    public  void ensureBookmarkOfTheSameDomainAreAssociated() throws MalformedURLException {
+    public void ensureBookmarkOfTheSameDomainAreAssociated() throws MalformedURLException {
 
         //arrange
         Bookmarks bookmarks = new Bookmarks();
@@ -189,7 +190,39 @@ public class BookmarksTest {
         List<String> result = bookmarks.getBookmarkTags(url1);
         List<String> expectedResult = new ArrayList<>();
         //assert
-        assertEquals(expectedResult,result);
+        assertEquals(expectedResult, result);
+
+    }
+
+    @Test
+    public void ensureFilteringByKeywordThatExistsReturnsResult() throws MalformedURLException {
+
+        URL url = new URL("http://www.google.com");
+        URL url1 = new URL("http://www.face.com/bla");
+        URL url2 = new URL("http://www.google.at/extra");
+
+        Bookmarks bookmarks = new Bookmarks();
+        //arrange
+        String firstTag = "firstTag";
+        String secondTag = "secondTag";
+        bookmarks.addBookmark(url);
+        bookmarks.addBookmark(url1);
+        bookmarks.addBookmark(url2);
+
+
+        //act
+        bookmarks.addTagToBookmark(url, firstTag);
+        bookmarks.addTagToBookmark(url, secondTag);
+        bookmarks.addTagToBookmark(url2, firstTag);
+
+
+        //result
+        int result = bookmarks.getBookmarksByTag(firstTag).size();
+
+        int expectedResult = 2;
+
+        assertEquals(expectedResult, result);
+
 
     }
 
