@@ -18,13 +18,8 @@ public class Bookmark {
     String domain;
     int rating = 0;
 
-
     public String getDomain() {
         return domain;
-    }
-
-    public void setDomain(String domain) {
-        this.domain = domain;
     }
 
     public URL getUrl() {
