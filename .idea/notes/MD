@@ -65,21 +65,26 @@ expected results = 0
 
 # Bookmark
 
-###  ensure getUrl returns URL
+##  ensure getUrl returns URL
 
 first parameter = http://www.google.com
 expected result = http://www.google.com
 
-###  ensure setRating returns 2
+##  ensure setRating returns 2
 
 first parameter = http://www.google.com
 secondparameter = 2
 expected result = 2
 
-###  ensure ensureSingleTaggingOfURL returns tag
+##  ensure ensureSingleTaggingOfURL returns tag
 
 first parameter = http://www.google.com
 secondparameter = firstTag
 expected result = firstTag
+
+## ensure deleteTag deletesTag
+Tags = (firstTag, secondTag)
+delete firstTag
+expected result : Tags = (secondTag)
 
 

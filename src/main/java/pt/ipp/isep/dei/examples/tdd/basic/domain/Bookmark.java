@@ -1,5 +1,6 @@
 package pt.ipp.isep.dei.examples.tdd.basic.domain;
 
+import javax.swing.text.html.HTML;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,5 +48,8 @@ public class Bookmark {
         return this.tags;
     }
 
+    public void deleteTag(String Tag) {
+        this.tags.remove(Tag);
+    }
 }
 
