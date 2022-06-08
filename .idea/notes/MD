@@ -93,7 +93,6 @@ second element = secondTag
 
 expected result = secondTag
 
-
 # Bookmark
 
 ##  ensure getUrl returns URL

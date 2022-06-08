@@ -330,6 +330,31 @@ public class BookmarksTest {
 
 
     }
+    @Test
+    public void deleteTagOfNotExistendBookmark() throws MalformedURLException{
+        URL url = new URL("http://www.google.com");
+        URL url1 = new URL("http://www.facebook.com");
+        Bookmarks bookmarks = new Bookmarks();
+        //arrange
+        String firstTag = "firstTag";
+        String secondTag = "secondTag";
 
+        bookmarks.addBookmark(url);
+
+
+        bookmarks.addTagToBookmark(url, firstTag);
+        bookmarks.addTagToBookmark(url, secondTag);
+
+        //act
+        bookmarks.deleteTagFromBookmark(url1, firstTag);
+
+        //result
+        List<String> result = bookmarks.getBookmarkTags(url1);
+        List<String> expectedResult = Arrays.asList();
+
+        assertEquals(expectedResult, result);
+
+
+    }
 
 }
