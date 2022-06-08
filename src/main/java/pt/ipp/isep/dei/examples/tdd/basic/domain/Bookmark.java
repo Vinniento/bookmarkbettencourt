@@ -1,8 +1,6 @@
 package pt.ipp.isep.dei.examples.tdd.basic.domain;
 
-import java.awt.print.Book;
 import java.net.URL;
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,11 +9,23 @@ public class Bookmark {
     public Bookmark(URL url) {
         this.url = url;
         this.tags = new ArrayList<>();
-
+        this.domain = url.getHost();
     }
 
     URL url;
     List<String> tags;
+    String domain;
+    int rating = 0;
+
+
+    public String getDomain() {
+        return domain;
+    }
+
+    public void setDomain(String domain) {
+        this.domain = domain;
+    }
+
     public URL getUrl() {
         return url;
     }
@@ -27,9 +37,6 @@ public class Bookmark {
     public void setRating(int rating) {
         this.rating = rating;
     }
-
-    int rating = 0;
-
 
 
     public void addTag(String Tag) {

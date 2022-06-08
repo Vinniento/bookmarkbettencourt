@@ -32,13 +32,6 @@ public class BookmarksTest {
         assertEquals(expectedResult.get(0).getUrl(), result.get(0).getUrl());
     }
 
-
-
-
-
-
-
-
     @Test
     public void ensureRatingGetsIncreasedWhenBookmarkIsAgainAdded() throws MalformedURLException{
         Bookmarks bookmarks = new Bookmarks();
@@ -112,6 +105,31 @@ public class BookmarksTest {
 
         //assert
         assertEquals(expectedresult, result);
+    }
+
+
+    @Test
+    public  void ensureBookmarkOfTheSameDomainAreAssociated() throws MalformedURLException {
+
+        //arrange
+        Bookmarks bookmarks = new Bookmarks();
+        URL url = new URL("https://www.google.at/dadu");
+        URL url1 = new URL("https://www.google.at/bla");
+        URL url2 = new URL("https://www.google.com/blasdf");
+
+        bookmarks.addBookmark(url);
+        bookmarks.addBookmark(url1);
+        bookmarks.addBookmark(url2);
+
+        //act
+        int result = bookmarks.getAssociatedBookmarksForDomain("www.google.at").size();
+
+        int expectedResult = 2;
+
+        //assert
+        assertEquals(expectedResult, result);
+
+
     }
 
 }

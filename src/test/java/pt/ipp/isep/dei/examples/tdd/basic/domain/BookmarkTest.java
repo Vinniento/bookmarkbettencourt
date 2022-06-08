@@ -15,7 +15,6 @@ public class BookmarkTest {
     @Test
     public void ensureGetUrlReturnsUrl() throws MalformedURLException {
 
-
         //arrange
         URL url = new URL("http://www.google.com");
         Bookmark bookmark = new Bookmark(url);

@@ -5,14 +5,16 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class Bookmarks {
     List<Bookmark> bookmarks = new ArrayList<>();
 
-    public List<Bookmark> addBookmark(URL url){
+    public List<Bookmark> addBookmark(URL url) {
 
         if (checkIfBookmarkExists(url)) {
-            for (Bookmark bookmark: bookmarks) {
+            for (Bookmark bookmark : bookmarks) {
                 bookmark.setRating(bookmark.getRating() + 1);
             }
         } else {
@@ -20,7 +22,6 @@ public class Bookmarks {
         }
         return bookmarks;
     }
-
 
 
     public boolean checkIfBookmarkExists(URL url) {
@@ -34,10 +35,17 @@ public class Bookmarks {
 
 
     public int getSecureUrlCount() {
-        return  (int)bookmarks.stream()
+        return (int) bookmarks.stream()
                 .filter(b -> b.getUrl().toString().contains("https://"))
                 .count();
     }
 
+    public List<Bookmark> getAssociatedBookmarksForDomain(String domain) {
+
+        return bookmarks
+                .stream()
+                .filter(bookmark -> Objects.equals(bookmark.getDomain(), domain))
+                .collect(Collectors.toList());
+    }
 }
 
