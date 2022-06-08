@@ -2,6 +2,7 @@ package pt.ipp.isep.dei.examples.tdd.basic.domain;
 
 import org.junit.jupiter.api.Test;
 
+import java.awt.print.Book;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -29,10 +30,6 @@ public class BookmarksTest {
         //assert
         assertEquals(expectedResult.get(0).getUrl(), result.get(0).getUrl());
     }
-
-
-    // add second bookmark to list
-
 
     @Test
     public void ensureSingleTaggingOfBookmark() throws MalformedURLException {
@@ -114,5 +111,25 @@ public class BookmarksTest {
 
         // assert
         assertEquals(expectedResult, result);
+    }
+
+    //CheckSecureUrlCount
+    @Test
+    public void EnsureNoSecureUrlsInBookmarksReturnsZero() throws MalformedURLException {
+
+        //arrange
+        Bookmarks bookmarks = new Bookmarks();
+
+        bookmarks.addBookmark(new URL("http://www.google.at"));
+        bookmarks.addBookmark(new URL("http://www.orf.at"));
+
+        //act
+        int result = bookmarks.getSecureUrlCount();
+        int expectedresult = 0;
+
+
+        //assert
+        assertEquals(expectedresult, result);
+
     }
 }

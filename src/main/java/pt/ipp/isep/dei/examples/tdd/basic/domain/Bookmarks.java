@@ -1,5 +1,7 @@
 package pt.ipp.isep.dei.examples.tdd.basic.domain;
 
+import java.awt.print.Book;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +9,8 @@ import java.util.List;
 public class Bookmarks {
     List<Bookmark> bookmarks = new ArrayList<>();
 
-    public List<Bookmark> addBookmark(URL url) {
+    public List<Bookmark> addBookmark(URL url){
+
         if (checkIfBookmarkExists(url)) {
             for (Bookmark bookmark: bookmarks) {
                 bookmark.setRating(bookmark.getRating() + 1);
@@ -17,6 +20,7 @@ public class Bookmarks {
         }
         return bookmarks;
     }
+
 
 
     public boolean checkIfBookmarkExists(URL url) {
@@ -60,5 +64,16 @@ public class Bookmarks {
         }
         return rating;
     }
+
+    public int getSecureUrlCount() {
+        int secureCount=0;
+        for(Bookmark bookmark : bookmarks){
+            if(bookmark.getUrl().toString().contains("https:")){
+                secureCount=secureCount+1;
+            }
+        }
+        return secureCount;
+    }
+
 }
 

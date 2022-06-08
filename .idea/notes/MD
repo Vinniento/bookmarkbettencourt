@@ -29,9 +29,14 @@ expected result = increased rating
 secondparameter = url
 expected result = rating+1
 
-# Bookmark
+## ensureNoSecureUrlsInBookmarksReturnsZero
 
-## include testing for getter/setter
+first parameter = http://google.com
+second parameter = http://orf.com
+
+expected result = 0;
+
+# Bookmark
 
 ###  ensure getUrl returns URL
 
