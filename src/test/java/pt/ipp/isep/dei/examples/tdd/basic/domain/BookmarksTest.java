@@ -76,6 +76,24 @@ public class BookmarksTest {
     }
 
     @Test
+    public void ensureTaggingIsOnlyValidOnUrlsInList() throws MalformedURLException {
+        URL url = new URL("http://www.google.com");
+        URL url1 = new URL("http://orf.at");
+        Bookmarks bookmarks = new Bookmarks();
+        String tag = "Tag";
+        //arrange
+        bookmarks.addBookmark(url);
+        bookmarks.addTagToBookmark(url1, tag);
+
+        //act
+        List<String> result = bookmarks.getBookmarkTags(url1);
+        List<String> expectedResult = new ArrayList<>();
+        //assert
+        assertEquals(expectedResult,result);
+
+    }
+
+    @Test
     public void ensureRatingOfBookmark() throws MalformedURLException{
         Bookmarks bookmarks = new Bookmarks();
 
