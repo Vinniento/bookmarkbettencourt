@@ -22,6 +22,47 @@ third parameter = https://www.google.com/blasdf
 
 expected result =2;
 
+## ensureFilteringByKeywordThatExistsReturnsResult
+
+first parameter = firstTag
+second parameter = url / firstTag
+third parameter = url / secondTag
+fourth parameter = url / firstTag
+
+expected result = 2
+
+## ensureFilteringByKeywordThatDoesNotExistsReturnsZero
+
+first parameter = firstTag
+second parameter = url / 
+third parameter = url1 /
+fourth parameter = url2 /
+
+expected result = 0
+
+## ensureFilteringByMultipleKeywordsThatExistReturnTotal
+
+first parameter = (secondTag, firstTag)
+
+given List of Bookmarks
+first element = url / firstTag
+second element = url / secondTag
+third element = url2 / thirdTag
+
+expected results = 2
+
+## ensureFilteringByMultipleKeywordsThatDoNotExistReturnTotal
+
+first parameter = secondTag, firstTag
+
+given List of Bookmarks
+first element = url
+second element = url1
+third element = url2
+
+expected results = 0
+
+
 # Bookmark
 
 ###  ensure getUrl returns URL

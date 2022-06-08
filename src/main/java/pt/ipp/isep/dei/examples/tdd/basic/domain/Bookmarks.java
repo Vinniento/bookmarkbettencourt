@@ -60,6 +60,13 @@ public class Bookmarks {
                 .collect(Collectors.toList());
     }
 
+    public List<Bookmark> getBookmarksByTags(List<String> tags){
+        List<Bookmark> result = new ArrayList<>();
+        for (String tag : tags){
+            result.addAll(getBookmarksByTag(tag));
+        }
+        return result;
+    }
     public int getSecureUrlCount() {
         return (int) bookmarks.stream()
                 .filter(b -> b.getUrl().toString().contains("https://"))
