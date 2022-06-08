@@ -66,13 +66,9 @@ public class Bookmarks {
     }
 
     public int getSecureUrlCount() {
-        int secureCount=0;
-        for(Bookmark bookmark : bookmarks){
-            if(bookmark.getUrl().toString().contains("https:")){
-                secureCount=secureCount+1;
-            }
-        }
-        return secureCount;
+        return  (int)bookmarks.stream()
+                .filter(b -> b.getUrl().toString().contains("https://"))
+                .count();
     }
 
 }
