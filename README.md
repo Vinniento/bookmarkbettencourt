@@ -20,7 +20,7 @@ If we want to run tests that use JUnit 5, we have to declare the junit-jupiter-e
     - https://junit.org/junit5/docs/current/user-guide/#writing-tests-annotations
 
   
-## Maven goals
+## Maven goals 
 ### Run the unit tests
 ```
 mvn clean test 
