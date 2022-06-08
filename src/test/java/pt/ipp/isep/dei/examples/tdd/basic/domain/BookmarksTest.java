@@ -292,7 +292,6 @@ public class BookmarksTest {
         //arrange
         String firstTag = "firstTag";
         String secondTag = "secondTag";
-        String thirdTag = "thirdTag";
         bookmarks.addBookmark(url);
         bookmarks.addBookmark(url1);
         bookmarks.addBookmark(url2);
@@ -305,5 +304,32 @@ public class BookmarksTest {
 
         assertEquals(expectedResult, result);
     }
+
+    @Test
+    public void ensureTagIsDeletedInBookmark() throws MalformedURLException{
+        URL url = new URL("http://www.google.com");
+        Bookmarks bookmarks = new Bookmarks();
+        //arrange
+        String firstTag = "firstTag";
+        String secondTag = "secondTag";
+
+        bookmarks.addBookmark(url);
+
+
+        bookmarks.addTagToBookmark(url, firstTag);
+        bookmarks.addTagToBookmark(url, secondTag);
+
+        //act
+        bookmarks.deleteTagFromBookmark(url, firstTag);
+
+        //result
+        List<String> result = bookmarks.getBookmarkTags(url);
+        List<String> expectedResult = Arrays.asList(secondTag);
+
+        assertEquals(expectedResult, result);
+
+
+    }
+
 
 }

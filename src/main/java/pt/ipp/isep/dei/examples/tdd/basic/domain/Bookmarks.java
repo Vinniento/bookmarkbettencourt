@@ -80,5 +80,13 @@ public class Bookmarks {
                 .filter(bookmark -> Objects.equals(bookmark.getDomain(), domain))
                 .collect(Collectors.toList());
     }
+
+    public void deleteTagFromBookmark(URL url, String tag) {
+
+        bookmarks
+                .stream()
+                .filter(bookmark -> bookmark.getUrl().equals(url))
+                .forEach(bookmark -> bookmark.deleteTag(tag));
+    }
 }
 

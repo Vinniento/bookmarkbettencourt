@@ -83,6 +83,16 @@ third element = url2
 
 expected results = 0
 
+##  ensureTagIsDeletedInBookmark
+
+first parameter = firstTag
+
+given Tags of Bookmark 
+first element = firstTag
+second element = secondTag
+
+expected result = secondTag
+
 
 # Bookmark
 
