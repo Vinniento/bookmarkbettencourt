@@ -40,16 +40,16 @@ public class Bookmark {
     }
 
 
-    public void addTag(String Tag) {
-        this.tags.add(Tag);
+    public void addTag(String tag) {
+        this.tags.add(tag);
     }
 
     public List<String> getTags() {
         return this.tags;
     }
 
-    public void deleteTag(String Tag) {
-        this.tags.remove(Tag);
+    public void deleteTag(String tag) {
+        this.tags.remove(tag);
     }
 }
 
