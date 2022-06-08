@@ -363,6 +363,26 @@ public class BookmarksTest {
     }
 
     @Test
+    public void deleteTagFromEmptyList() throws MalformedURLException {
+        URL url = new URL("http://www.google.com");
+        URL url1 = new URL("http://www.facebook.com");
+        Bookmarks bookmarks = new Bookmarks();
+        //arrange
+        String firstTag = "firstTag";
+
+        //act
+        bookmarks.deleteTagFromBookmark(url1, firstTag);
+
+        //result
+        List<String> result = bookmarks.getBookmarkTags(url1);
+        List<String> expectedResult = Arrays.asList();
+
+        assertEquals(expectedResult, result);
+
+
+    }
+
+    @Test
     public void ensureRemovingExistingBookmarkResultsInSmallerList() throws MalformedURLException {
         URL url = new URL("http://www.google.com");
         URL url1 = new URL("http://www.facebook.com");

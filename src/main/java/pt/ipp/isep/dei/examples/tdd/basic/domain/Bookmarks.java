@@ -1,6 +1,6 @@
 package pt.ipp.isep.dei.examples.tdd.basic.domain;
 
-import java.awt.print.Book;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -84,10 +84,11 @@ public class Bookmarks {
 
     public void deleteTagFromBookmark(URL url, String tag) {
 
-        bookmarks
-                .stream()
-                .filter(bookmark -> bookmark.getUrl().equals(url))
-                .forEach(bookmark -> bookmark.deleteTag(tag));
+        for (Bookmark bookmark : bookmarks) {
+            if (bookmark.getUrl() == url) {
+               bookmark.deleteTag(tag);
+            }
+        }
     }
 
     public void removeBookmark(URL url) {
