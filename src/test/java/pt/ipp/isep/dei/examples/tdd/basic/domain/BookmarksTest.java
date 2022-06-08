@@ -132,4 +132,39 @@ public class BookmarksTest {
         assertEquals(expectedresult, result);
 
     }
+
+    @Test
+    public void EnsureOneSecureUrlInBookmarksReturnsOne() throws MalformedURLException {
+
+        //arrange
+        Bookmarks bookmarks = new Bookmarks();
+
+        bookmarks.addBookmark(new URL("https://www.google.at"));
+        bookmarks.addBookmark(new URL("http://www.orf.at"));
+
+        //act
+        int result = bookmarks.getSecureUrlCount();
+        int expectedresult = 1;
+
+
+        //assert
+        assertEquals(expectedresult, result);
+    }
+    @Test
+    public void EnsureTwoSecureUrlInBookmarksReturnsTwo() throws MalformedURLException {
+        //arrange
+        Bookmarks bookmarks = new Bookmarks();
+
+        bookmarks.addBookmark(new URL("https://www.google.at"));
+        bookmarks.addBookmark(new URL("https://www.orf.at"));
+
+        //act
+        int result = bookmarks.getSecureUrlCount();
+        int expectedresult = 2;
+
+
+        //assert
+        assertEquals(expectedresult, result);
+    }
+
 }
