@@ -23,6 +23,25 @@ public class Bookmarks {
         return bookmarks;
     }
 
+    public void addTagToBookmark(URL url, String tag) {
+
+        bookmarks.forEach(bookmark -> {
+            if (bookmark.getUrl() == url) {
+                bookmark.addTag(tag);
+            }
+        });
+    }
+    public List<String> getBookmarkTags(URL url) {
+        List<String> tag = new ArrayList<>();
+
+        for (Bookmark bookmark : bookmarks) {
+            if (bookmark.getUrl() == url) {
+                tag = bookmark.getTags();
+                break;
+            }
+        }
+        return tag;
+    }
 
     public boolean checkIfBookmarkExists(URL url) {
         for (Bookmark bookmark : bookmarks) {

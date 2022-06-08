@@ -128,7 +128,27 @@ public class BookmarksTest {
 
         //assert
         assertEquals(expectedResult, result);
+    }
 
+    @Test
+    public void ensureSingleTaggingOfBookmark() throws MalformedURLException {
+
+
+        //arrange
+        Bookmarks bookmarks = new Bookmarks();
+        String tag = "katzenvideos";
+        List<String> expectedResult = new ArrayList<>();
+        expectedResult.add(tag);
+        URL url = new URL("https://www.google.com");
+
+        //act
+        bookmarks.addBookmark(url);
+        bookmarks.addTagToBookmark(url, tag);
+
+        List<String> result = bookmarks.getBookmarkTags(url);
+
+        //result
+        assertEquals(expectedResult, result);
 
     }
 
