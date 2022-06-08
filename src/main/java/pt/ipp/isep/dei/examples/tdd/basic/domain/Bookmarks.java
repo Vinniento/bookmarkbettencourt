@@ -35,7 +35,6 @@ public class Bookmarks {
                 bookmark.addTag(tag);
             }
         });
-
     }
 
     public List<String> getBookmarkTags(URL url) {

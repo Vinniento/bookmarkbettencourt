@@ -6,6 +6,9 @@ test if bookmark can be added
 first parameter = bookmark
 expectedResult = List with added bookmark
 
+## addSecondBookmarkToBookmarksTest
+
+
 ## ensureSingleTaggingOfURL
 
 test if Bookmark is tagged successfully with one tag
@@ -25,3 +28,14 @@ expected result = increased rating
 
 secondparameter = url
 expected result = rating+1
+
+# Bookmark
+
+## include testing for getter/setter
+
+###  ensure getUrl returns URL
+
+first parameter = url
+expected result = url
+
+

@@ -2,6 +2,7 @@ package pt.ipp.isep.dei.examples.tdd.basic.domain;
 
 import org.junit.jupiter.api.Test;
 
+import java.awt.print.Book;
 import java.lang.reflect.Array;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -10,6 +11,22 @@ import java.util.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BookmarkTest {
+
+    @Test
+    public void ensureGetUrlReturnsUrl() throws MalformedURLException{
+
+
+        //arrange
+        URL url = new URL("http://www.google.com");
+        Bookmark bookmark = new Bookmark(url);
+
+        //act
+        URL result =bookmark.getUrl();
+        URL expectedResult = url;
+        //assert
+        assertEquals(expectedResult,result);
+    }
+
 
     @Test
     public void ensureMultipleTagsForBookmark() throws MalformedURLException {
