@@ -45,6 +45,26 @@ public class BookmarkTest {
 
 
     @Test
+    public void ensureSingleTaggingOfBookmark() throws MalformedURLException {
+
+        URL url = new URL("http://www.google.com");
+        Bookmark bookmark = new Bookmark(url);
+
+        //arrange
+        String firstTag = "firstTag";
+        List<String> expectedResult = Arrays.asList(firstTag);
+
+        //act
+        bookmark.addTag(firstTag);
+
+        List<String> result = bookmark.getTags();
+
+        //assert
+        assertEquals(expectedResult, result);
+
+    }
+
+    @Test
     public void ensureMultipleTagsForBookmark() throws MalformedURLException {
 
         URL url = new URL("http://www.google.com");
