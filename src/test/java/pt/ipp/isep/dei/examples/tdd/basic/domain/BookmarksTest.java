@@ -308,16 +308,20 @@ public class BookmarksTest {
     @Test
     public void ensureTagIsDeletedInBookmark() throws MalformedURLException {
         URL url = new URL("http://www.google.com");
+        URL url1 = new URL("http://www.facebook.com");
         Bookmarks bookmarks = new Bookmarks();
         //arrange
         String firstTag = "firstTag";
         String secondTag = "secondTag";
 
         bookmarks.addBookmark(url);
-
+        bookmarks.addBookmark(url1);
 
         bookmarks.addTagToBookmark(url, firstTag);
+        bookmarks.addTagToBookmark(url1, firstTag);
         bookmarks.addTagToBookmark(url, secondTag);
+        bookmarks.addTagToBookmark(url1, secondTag);
+
 
         //act
         bookmarks.deleteTagFromBookmark(url, firstTag);
