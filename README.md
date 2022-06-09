@@ -21,7 +21,7 @@ If we want to run tests that use JUnit 5, we have to declare the junit-jupiter-e
 
   
 ## Maven goals 
-### Run the unit tests
+### Run the unit tests  
 ```
 mvn clean test 
 ```
