@@ -5,7 +5,8 @@
 As a user I want to bookmark a URL
 • URLs must be valid
 
-## US02. As a user I want to be able to Tag a URL
+## US02. 
+As a user I want to be able to Tag a URL
 with a keyword
 
 ## US03. 
